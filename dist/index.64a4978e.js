@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"jTxFF":[function(require,module,exports) {
+})({"46PTB":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -583,9 +583,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"1uKtX":[function(require,module,exports) {
-var Refresh = require("7c142f6361826726");
-var ErrorOverlay = require("543ec1f6191c67b4");
+},{}],"1xC6H":[function(require,module,exports) {
+var Refresh = require("6d18d6bd340e7473");
+var ErrorOverlay = require("74ad5ea14201648c");
 Refresh.injectIntoGlobalHook(window);
 window.$RefreshReg$ = function() {};
 window.$RefreshSig$ = function() {
@@ -604,11 +604,11 @@ window.addEventListener("parcelhmraccept", ()=>{
     ErrorOverlay.dismissRuntimeErrors();
 });
 
-},{"7c142f6361826726":"kXhIo","543ec1f6191c67b4":"hdc1d"}],"kXhIo":[function(require,module,exports) {
+},{"6d18d6bd340e7473":"786KC","74ad5ea14201648c":"1dldy"}],"786KC":[function(require,module,exports) {
 "use strict";
-module.exports = require("2b997043939dabea");
+module.exports = require("96622d495519d4e");
 
-},{"2b997043939dabea":"6MjGU"}],"6MjGU":[function(require,module,exports) {
+},{"96622d495519d4e":"hdge7"}],"hdge7":[function(require,module,exports) {
 /** @license React v0.9.0
  * react-refresh-runtime.development.js
  *
@@ -1068,8 +1068,8 @@ module.exports = require("2b997043939dabea");
     exports.setSignature = setSignature;
 })();
 
-},{}],"hdc1d":[function(require,module,exports) {
-var process = require("7b437f33addf32b3");
+},{}],"1dldy":[function(require,module,exports) {
+var process = require("d1546958eb39fdcf");
 !function(e, t) {
     module.exports = t();
 }(window, function() {
@@ -2799,7 +2799,7 @@ var process = require("7b437f33addf32b3");
     ]);
 });
 
-},{"7b437f33addf32b3":"d5jf4"}],"d5jf4":[function(require,module,exports) {
+},{"d1546958eb39fdcf":"d5jf4"}],"d5jf4":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {};
 // cached from whatever global is present so that test runners that stub it
@@ -2952,10 +2952,10 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 const scene = new _three.Scene();
 // Define the camera first
-const camera = new _three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new _three.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 // Now initialize OrbitControls after defining the camera
 const orbit = new (0, _orbitControlsJs.OrbitControls)(camera, renderer.domElement);
-camera.position.set(0, 2, 5);
+camera.position.set(-10, 30, 30);
 orbit.update();
 const axesHelper = new _three.AxesHelper(5);
 scene.add(axesHelper);
@@ -2966,6 +2966,22 @@ const boxMaterial = new _three.MeshBasicMaterial({
 });
 const box = new _three.Mesh(boxGeometry, boxMaterial);
 scene.add(box);
+const planegeometery = new _three.PlaneGeometry(20, 20);
+const planeMaterial = new _three.MeshBasicMaterial({
+    color: 0xFFFFFF,
+    side: _three.DoubleSide
+});
+const plane = new _three.Mesh(planegeometery, planeMaterial);
+scene.add(plane);
+plane.rotation.x = -0.5 * Math.PI;
+const sphereGeometery = new _three.SphereGeometry(4);
+const sphereMaterail = new _three.MeshBasicMaterial({
+    color: 0x0000FF
+});
+const sphere = new _three.Mesh(sphereGeometery, sphereMaterail);
+scene.add(sphere);
+const gridHelper = new _three.GridHelper(30);
+scene.add(gridHelper);
 // Animate the box
 function animate(time) {
     box.rotation.y = time / 1000;
@@ -34479,7 +34495,7 @@ if (typeof window !== "undefined") {
     else window.__THREE__ = REVISION;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"hiDRR"}],"hiDRR":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -35343,6 +35359,6 @@ function interceptControlUp(event) {
     }
 }
 
-},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"hiDRR"}]},["jTxFF","1uKtX","goJYj"], "goJYj", "parcelRequire2f4f")
+},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["46PTB","1xC6H","goJYj"], "goJYj", "parcelRequire2f4f")
 
 //# sourceMappingURL=index.64a4978e.js.map

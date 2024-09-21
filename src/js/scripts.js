@@ -10,7 +10,7 @@ const scene = new THREE.Scene();
 
 // Define the camera first
 const camera = new THREE.PerspectiveCamera(
-    75,
+    45,
     window.innerWidth / window.innerHeight,
     0.1,
     1000
@@ -18,7 +18,7 @@ const camera = new THREE.PerspectiveCamera(
 
 // Now initialize OrbitControls after defining the camera
 const orbit = new OrbitControls(camera, renderer.domElement);
-camera.position.set(0, 2, 5);
+camera.position.set(-10, 30, 30);
 orbit.update();
 
 const axesHelper = new THREE.AxesHelper(5);
@@ -29,6 +29,25 @@ const boxGeometry = new THREE.BoxGeometry();
 const boxMaterial = new THREE.MeshBasicMaterial({ color: 0x00FF00 });
 const box = new THREE.Mesh(boxGeometry, boxMaterial);
 scene.add(box);
+
+
+const planegeometery= new THREE.PlaneGeometry(20,20);
+const planeMaterial = new THREE.MeshBasicMaterial({
+    color: 0xFFFFFF,
+    side: THREE.DoubleSide
+});
+const plane=new THREE.Mesh(planegeometery,planeMaterial);
+scene.add(plane);
+
+plane.rotation.x= -0.5* Math.PI;
+
+
+const sphereGeometery = new THREE.SphereGeometry(4);
+const sphereMaterail =new THREE.MeshBasicMaterial({color:0x0000FF})
+const sphere =new THREE.Mesh(sphereGeometery,sphereMaterail);
+scene.add(sphere)
+const gridHelper=new THREE.GridHelper(30);
+scene.add(gridHelper);
 
 // Animate the box
 function animate(time) {
