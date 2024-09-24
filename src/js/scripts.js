@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import * as dat from 'dat.gui';
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -18,10 +19,10 @@ const camera = new THREE.PerspectiveCamera(
 
 // Now initialize OrbitControls after defining the camera
 const orbit = new OrbitControls(camera, renderer.domElement);
-camera.position.set(-10, 30, 30);
+camera.position.set(0, 0, 0);
 orbit.update();
 
-const axesHelper = new THREE.AxesHelper(5);
+const axesHelper = new THREE.AxesHelper(30);
 scene.add(axesHelper);
 
 // Create the box
@@ -43,9 +44,24 @@ plane.rotation.x= -0.5* Math.PI;
 
 
 const sphereGeometery = new THREE.SphereGeometry(4);
-const sphereMaterail =new THREE.MeshBasicMaterial({color:0x0000FF})
+const sphereMaterail =new THREE.MeshBasicMaterial({
+    color:0x0000FF,
+    wireframe:false
+})
 const sphere =new THREE.Mesh(sphereGeometery,sphereMaterail);
 scene.add(sphere)
+
+sphere.position.set(-10,10,0);
+
+const gui=new dat.GUI();
+const options={
+    sphereColor:"#ffea00"
+}
+gui.addColor(options,'sphereColor').onChange(function(e){
+    sphere.material.color.set(e);
+})
+
+
 const gridHelper=new THREE.GridHelper(30);
 scene.add(gridHelper);
 
@@ -60,3 +76,4 @@ function animate(time) {
 
 // Start the animation loop
 renderer.setAnimationLoop(animate);
+   
